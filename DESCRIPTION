@@ -1,0 +1,25 @@
+Package: NetworkUtils
+Title: Network analysis utitilities for "From hairballs to hypotheses: biological insights from microbial networks"
+Version: 0.0.0.9000
+Description: This package provides utility functions for inference and analysis of biological networks. Note that this package is mostly provided as supporting material for the publication, and functionality cannot be guaranteed. 
+Authors@R: person("Lisa", "Rottjers", email = "lisa.rottjers@kuleuven.be", role = c("aut", "cre"))
+Depends: R (>= 3.4.2),
+         igraph, 
+         seqtime
+Imports: SpiecEasi,
+         deSolve,
+         reshape2,
+         metap,
+         RColorBrewer,
+         stringr, 
+         pROC,
+         circlize
+License: MIT + file LICENSE
+LazyData: true
+Encoding: UTF-8
+URL: https://github.com/ramellose/NetworkUtils
+BugReports: https://github.com/ramellose/NetworkUtils/issues
+RoxygenNote: 6.0.1
+VignetteBuilder: knitr
+Suggests: knitr,
+    rmarkdown
