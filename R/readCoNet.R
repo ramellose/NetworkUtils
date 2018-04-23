@@ -71,5 +71,5 @@ readCoNet = function(name="brown", mode = "env", x=seq(from=0, to=50, by=5), n=1
     results[[i]] = resultssub
   }
   setwd(wdir)
-  saveRDS(results, paste("CoNet_", name, "_", setname, "_bashnetworks.rds", sep=""))
+  saveRDS(results, paste("CoNet", name, "_", setname, "_networks.rds", sep=""))
 }

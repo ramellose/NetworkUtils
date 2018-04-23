@@ -25,8 +25,8 @@ writeFeatures = function(n, x, edges){
   for (i in 2:length(x)){
     set = list()
     for (j in 1:n){
-      condition1 = edges[[i]][[1]][1,]
-      condition2 = edges[[i]][[1]][2,]
+      condition1 = edges[[i]][[1]][[1]][1,]
+      condition2 = edges[[i]][[1]][[1]][2,]
       factor1 = vector(mode="numeric")
       factor2 = vector(mode="numeric")
       factor1[1:40] = condition1[1]

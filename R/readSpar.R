@@ -8,7 +8,7 @@
 #' @param alldata list of datasets with simulated counts
 #' @param klemmadj list of Klemm matrices
 #'
-#' @return nothing, but writes .txt files to current directory
+#' @return Nothing, but writes .txt files to current directory
 #' @export
 readSpar = function(n, x, mode=NA, setname, alldata, klemmadj, wdir){
   set = list()

@@ -9,7 +9,7 @@
 #'
 #' @return Returns nothing, but saves .rds files of datasets
 #' @export
-generateSets = function(n, klemms, species, samples, x, mode="env", name){
+generateSets = function(n, klemms, species, samples, x, mode="env", name, sign="none"){
   alldata = list()
   envlist = list()
   for (i in 1:length(x)){
@@ -17,13 +17,14 @@ generateSets = function(n, klemms, species, samples, x, mode="env", name){
     if (mode == "env"){
       env = list()
       for (j in 1:n){
-        env1 = NetworkUtils::envGrowthChanges(species=species,  env.factors=2, conditions=2, strength=x[i])
+        env1 = NetworkUtils::envGrowthChanges(species=species,  env.factors=2, conditions=2, strength=x[i], mode=sign)
         env[[j]] = env1
         subset = seqtime:::generateDataSet(samples, klemms[[j]], env.matrix = env1[[2]], perturb.count = c(40,40))
         data[[j]] = subset
       }
       envlist[[i]] = env
-      saveRDS(envlist, "environmentalfactors+species_edges.rds")
+      envname = paste(name, "_envfactors.rds", sep="")
+      saveRDS(envlist, envname)
     }
     else {
       for (j in 1:n){

@@ -35,8 +35,8 @@ analyseOutput = function(network, klemmadj, tool, setname, x, n, absolute = TRUE
         output[j,4] = computeStat(subset[[j]], mode="assortativity")
         output[j,5] = mean(computeStat(subset[[j]], mode="degree"))
         output[j,6] = computeStat(subset[[j]], mode="transitivity")
-        output[j,7] = computeAUC(mat, subset[[j]])
-        output[j,8] = computeStat(subset[[j]], mode="modularity")
+        #output[j,7] = computeAUC(mat, subset[[j]])
+        #output[j,8] = computeStat(subset[[j]], mode="modularity")
       }
       if (mean == 0 ){
         output[j,c(1:8)] = NA
