@@ -14,17 +14,23 @@
 #' env = envGrowthChanges(species = 10, env.factors=2, conditions=2, strength=0.5)
 #' dataset = generateDataSet(100, klemm, env.matrix = env, perturb.count = c(50, 50))
 #' @export
-envGrowthChanges = function(species, env.factors=2, conditions=2, strength){
+envGrowthChanges = function(species, env.factors=2, conditions=2, strength, mode="none"){
   env.matrix = matrix(nrow = species, ncol = env.factors)
   growth.matrix = matrix(nrow = species, ncol = conditions)
   for (i in 1:env.factors){
     env.matrix[,i] = rnorm(species, sd=strength)
+    if (mode == "abs" | mode == "sign"){
+      env.matrix[,i] = abs(rnorm(species, sd=strength))
+    }
   }
   features = matrix(nrow=2, ncol=2)
   colnames(features) = c("feature1", "feature2")
   rownames(features) = c("condition1", "condition2")
   for (j in 1:conditions){
     env.state = rnorm(env.factors)
+    if (mode == "abs"){
+      env.state = abs(rnorm(env.factors))
+    }
     features[j,] = env.state
     out = env.matrix*env.state
     growth.matrix[,j] = rowSums(out)

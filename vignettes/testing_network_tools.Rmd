@@ -34,7 +34,7 @@ envdata = generateSets(n=n, klemms=klemms, species=100, samples=80, x=x, mode="e
 
 ## Writing the dataset
 
-We can now use network inference tools to reconstruct networks from the original dataset. As we decided to run SparCC and CoNet from the original command line implementations, we first need to write .txt files from the networks. Now we can analyse all those networks with a Bash script. 
+We can now use network inference tools to reconstruct networks from the original dataset. As we decided to run SparCC and CoNet from the original command line implementations, we first need to write .txt files from the networks. We can analyse these networks with a Bash script. 
 
 ```{r, eval = FALSE}
 writeSets(n, x, envdata)
