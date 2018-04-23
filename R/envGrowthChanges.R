@@ -31,6 +31,9 @@ envGrowthChanges = function(species, env.factors=2, conditions=2, strength, mode
     if (mode == "abs"){
       env.state = abs(rnorm(env.factors))
     }
+    if (mode == "sign"){
+      env.state = -abs(rnorm(env.factors))
+    }
     features[j,] = env.state
     out = env.matrix*env.state
     growth.matrix[,j] = rowSums(out)
