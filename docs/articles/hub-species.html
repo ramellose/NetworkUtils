@@ -78,7 +78,7 @@
       <h1>Identifying hub species</h1>
                         <h4 class="author">Lisa Rottjers</h4>
             
-            <h4 class="date">2018-04-23</h4>
+            <h4 class="date">2018-05-02</h4>
           </div>
 
     
@@ -106,7 +106,7 @@ hubdata =<span class="st"> </span><span class="kw"><a href="../reference/generat
 <div id="network-inference" class="section level2">
 <h2 class="hasAnchor">
 <a href="#network-inference" class="anchor"></a>Network inference</h2>
-<p>Just like before, we are not running this code; especially gCoda can take a long time to run when environmental strength becomes greater. The results are in the “data/Hub species networks” folder. The callTools function wraps several network inference tools that can be called from R, but we used VMs to run SparCC and CoNet. The bash scripts to run these tools are also included in the “data” folder, and just need to be modified to run from 1 to 100.</p>
+<p>Just like before, we are not running this code; especially gCoda can take a long time to run when environmental strength becomes greater. The results are in the “data/Hub species networks” folder. The callTools function wraps several network inference tools that can be called from R and stores the output to the current working directory. For CoNet and SparCC, we used virtual machines. The bash scripts to run these tools are also included in the “data” folder, and just need to be modified to run from 1 to 100.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This function runs network inference and analyses the inferred networks</span>
 <span class="kw"><a href="../reference/callTools.html">callTools</a></span>(hubdata, hubklemmadj, <span class="dt">toolnames=</span><span class="kw">c</span>(<span class="st">"SpiecEasi GL"</span>, <span class="st">"SpiecEasi MB"</span>, <span class="st">"gCoda"</span>, <span class="st">"Spearman"</span>), setname, <span class="dt">x=</span><span class="dv">1</span>, <span class="dt">n=</span><span class="dv">100</span>, <span class="dt">absolute =</span> <span class="ot">TRUE</span>,  <span class="dt">mode=</span><span class="st">"env"</span>)
 
@@ -118,7 +118,7 @@ hubdata =<span class="st"> </span><span class="kw"><a href="../reference/generat
 <div id="results-visualization" class="section level2">
 <h2 class="hasAnchor">
 <a href="#results-visualization" class="anchor"></a>Results visualization</h2>
-<p>The results can be visualized using the functions in this package.</p>
+<p>The results can be visualized using the functions in this package. We load the network files from the data folder.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">"ggplot2"</span>)
 <span class="co">#&gt; Warning: package 'ggplot2' was built under R version 3.4.3</span>
 <span class="kw">library</span>(<span class="st">"NetworkUtils"</span>)

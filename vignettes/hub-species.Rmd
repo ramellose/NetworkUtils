@@ -41,7 +41,7 @@ writeSets(n=100, x=1, hubdata)
 
 ## Network inference 
 
-Just like before, we are not running this code; especially gCoda can take a long time to run when environmental strength becomes greater. The results are in the "data/Hub species networks" folder. The callTools function wraps several network inference tools that can be called from R, but we used VMs to run SparCC and CoNet. The bash scripts to run these tools are also included in the "data" folder, and just need to be modified to run from 1 to 100. 
+Just like before, we are not running this code; especially gCoda can take a long time to run when environmental strength becomes greater. The results are in the "data/Hub species networks" folder. The callTools function wraps several network inference tools that can be called from R and stores the output to the current working directory. For CoNet and SparCC, we used virtual machines. The bash scripts to run these tools are also included in the "data" folder, and just need to be modified to run from 1 to 100. 
 
 ```{r, eval = FALSE}
 # This function runs network inference and analyses the inferred networks
@@ -56,7 +56,7 @@ readSpar(n=100, x=1, mode="hubs", alldata=hubdata, setname=set4, klemmadj=hubkle
 
 ## Results visualization 
 
-The results can be visualized using the functions in this package. 
+The results can be visualized using the functions in this package. We load the network files from the data folder. 
 
 ```{r, fig.width=5, fig.height=4}
 library("ggplot2")

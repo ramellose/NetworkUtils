@@ -46,7 +46,7 @@ writeFeatures(n, x, edges)
 
 ## Network inference 
 
-Just like before, we are not running this code; especially gCoda can take a long time to run when environmental strength becomes greater. The results are in the "data/Environmental factor networks" folder. The callTools function wraps several network inference tools that can be called from R, but we used VMs to run SparCC and CoNet. The bash scripts to run these tools are also included in the "data" folder. 
+Just like before, we are not running this code; especially gCoda can take a long time to run when environmental strength becomes greater. The results are in the "data/Environmental factor networks" folder. The callTools function wraps several network inference tools that can be called from R and stores the output to the current working directory. For CoNet and SparCC, we used virtual machines. The bash scripts to run these tools are also included in the "data" folder. 
 
 ```{r, eval = FALSE}
 # This function runs network inference and analyses the inferred networks
@@ -55,7 +55,7 @@ callTools(envdata, klemmadj, toolnames=c("SpiecEasi GL", "SpiecEasi MB", "gCoda"
 # After running bashscript_CoNet.bash, this function can be used to parse the CoNet output 
 readCoNet(name="brown", x=x, n=n, alldata=envdata, setname, tool="CoNet Brown", klemmadj=klemmadj, wdir=wdir, absolute=TRUE)
 # The factors add 2 columns and rows to the adjacency matrix, which need to be stripped
-conetbrown <- readRDS("C:/Users/u0118219/Box Sync/Simulation/params/CoNet_brown_env_networks.rds")
+conetbrown <- readRDS('path to file generated with readCoNet')
 for (i in 1:11){
   for (j in 1:10){
     conetbrown[[i]][[j]] = conetbrown[[i]][[j]][1:100,1:100]
@@ -70,7 +70,7 @@ readSpar(n=n, x=x, alldata=envdata, mode="env", setname, klemmadj, wdir=wdir)
 
 ## Results visualization 
 
-The results can be visualized using the functions in this package. 
+The results can be visualized using the functions in this package. We load the result files from the data folder. 
 
 ```{r, fig.width=7, fig.height=6}
 library("ggplot2")
