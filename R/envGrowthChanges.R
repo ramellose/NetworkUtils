@@ -23,9 +23,9 @@ envGrowthChanges = function(species, env.factors=2, conditions=2, strength, mode
       env.matrix[,i] = abs(rnorm(species, sd=strength))
     }
   }
-  features = matrix(nrow=2, ncol=2)
-  colnames(features) = c("feature1", "feature2")
-  rownames(features) = c("condition1", "condition2")
+  features = matrix(nrow=conditions, ncol=env.factors)
+  colnames(features) = paste("feature", c(1:env.factors), sep="_")
+  rownames(features) = paste("condition", c(1:conditions), sep="_")
   for (j in 1:conditions){
     env.state = rnorm(env.factors)
     if (mode == "abs"){
